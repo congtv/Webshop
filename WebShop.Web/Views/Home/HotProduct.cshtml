@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebShop.Web.Models.ProductViewModel>
+
+<!-- BEGIN SALE PRODUCT -->
+<div class="col-md-12 sale-product">
+    @if (Model.Count() != 0)
+    {
+        <h2>SẢN PHẨM HOT</h2>
+    }
+    <div class="owl-carousel owl-carousel5">
+        @foreach (var product in Model)
+        {
+            var isAll = product.PromotionPrice.HasValue && product.HotFlag == true;
+            var isPromo = product.PromotionPrice.HasValue;
+            var isHot = product.HotFlag == true;
+            <div>
+                <div class="product-item">
+                    <div class="pi-img-wrapper">
+                        <img src="@product.Image" class="img-responsive" alt="@product.Name">
+                        <div>
+                            <a href="@product.Image" class="btn btn-default fancybox-button">Zoom</a>
+                            <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                        </div>
+                    </div>
+                    <h3><a href="shop-item.html">@product.Name</a></h3>
+                    @if (isPromo)
+                    {
+                        <div class="pi-price">@product.PromotionPrice.Value.ToString("N0")</div>
+                    }
+                    else
+                    {
+                        <div class="pi-price">@product.Price.ToString("N0")</div>
+
+                    }
+
+                    <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+
+                    @if (isAll)
+                    {
+                        <div class="sticker sticker-new sticker-sale "></div>
+                    }
+                    else if (isPromo)
+                    {
+                        <div class="sticker sticker-sale "></div>
+                    }
+                    else
+                    {
+                        <div class="sticker sticker-new "></div>
+                    }
+
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+<!-- END SALE PRODUCT -->

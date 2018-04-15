@@ -1,0 +1,16 @@
+﻿.owl-carousel-header>a{
+    display:inline;
+    margin-right:10px;
+    text-transform:uppercase;
+    font-size:14px;
+    color:#e45000;
+    padding-top:3px;
+    float:right;
+    font-family:"PT Sans Narrow", sans-serif;
+}
+.owl-carousel-header>a:hover{
+    text-decoration:underline;
+}
+.owl-carousel-header>h2{
+    display:inline;
+}

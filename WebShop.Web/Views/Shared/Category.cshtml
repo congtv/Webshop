@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebShop.Web.Models.ProductCategoryViewModel>
+
+<div class="sidebar col-md-3 col-sm-4">
+    <ul class="list-group margin-bottom-25 sidebar-menu">
+        @foreach (var category in Model.Where(x => x.ParentID == null))
+        {
+            var url = "/" + category.Alias + ".pc-" + category.ID + ".html";
+            var childCategories = Model.Where(x => x.ParentID == category.ID);
+            <li class="list-group-item clearfix dropdown">
+                <a href="@url"><i class="fa fa-angle-right"></i>@category.Name</a>
+                @if (childCategories.Count() > 0)
+                {
+                    <ul class="dropdown-menu">
+                        @foreach (var childCategory in childCategories)
+                        {
+                            var childUrl = "/" + childCategory.Alias + ".pc-" + childCategory.ID + ".html";
+                            <li class="list-group-item dropdown clearfix">
+                                <a href="@childUrl"><i class="fa fa-angle-right"></i>@childCategory.Name</a>
+                            </li>
+                        }
+                    </ul>
+                }
+            </li>
+        }
+    </ul>
+</div>
+
