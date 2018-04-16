@@ -1,5 +1,4 @@
-﻿/// <reference path="C:\Users\lumin\documents\visual studio 2015\Projects\Phaokhoimau_Webshop\WebShop.Web\Assets/admin/libs/angular/angular.js" />
-
+﻿
 (function () {
     //module chính include các module con (product, common,user ....)
     angular.module('webshop',
@@ -45,7 +44,7 @@
                     return $q.reject(rejection);
                 },
                 response: function (response) {
-                    if (response.status == "401") {
+                    if (response.status === "401") {
                         $location.path('/login');
                     }
                     //the same response/modified/or a new one need to be returned.
@@ -53,7 +52,7 @@
                 },
                 responseError: function (rejection) {
 
-                    if (rejection.status == "401") {
+                    if (rejection.status === "401") {
                         $location.path('/login');
                     }
                     return $q.reject(rejection);

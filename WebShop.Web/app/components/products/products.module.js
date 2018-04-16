@@ -1,5 +1,4 @@
-﻿/// <reference path="C:\Users\lumin\documents\visual studio 2015\Projects\Phaokhoimau_Webshop\WebShop.Web\Assets/admin/libs/angular/angular.js" />
-
+﻿
 (function () { 
 	angular.module('webshop.products', ['webshop.common']).config(config);
 	config.$inject = ['$stateProvider', '$urlRouterProvider'];

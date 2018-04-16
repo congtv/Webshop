@@ -21,32 +21,32 @@ namespace WebShop.Data.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
-            CreateProductCategorySample(context);
+            //CreateProductCategorySample(context);
 
-            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new WebShopDbContext()));
+            //var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new WebShopDbContext()));
 
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new WebShopDbContext()));
+            //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new WebShopDbContext()));
 
-            var user = new ApplicationUser()
-            {
-                UserName = "admin",
-                Email = "mr.wlight@gmail.com",
-                EmailConfirmed = true,
-                BirthDay = DateTime.Now,
-                FullName = "Sương Gió Hà Nội"
-            };
+            //var user = new ApplicationUser()
+            //{
+            //    UserName = "admin",
+            //    Email = "mr.wlight@gmail.com",
+            //    EmailConfirmed = true,
+            //    BirthDay = DateTime.Now,
+            //    FullName = "Sương Gió Hà Nội",
+            //};
 
-            manager.Create(user, "123456$");
+            //manager.Create(user, "123456$");
 
-            if (!roleManager.Roles.Any())
-            {
-                roleManager.Create(new IdentityRole { Name = "Admin" });
-                roleManager.Create(new IdentityRole { Name = "User" });
-            }
+            //if (!roleManager.Roles.Any())
+            //{
+            //    roleManager.Create(new IdentityRole { Name = "Admin" });
+            //    roleManager.Create(new IdentityRole { Name = "User" });
+            //}
 
-            var adminUser = manager.FindByEmail("mr.wlight@gmail.com");
+            //var adminUser = manager.FindByEmail("mr.wlight@gmail.com");
 
-            manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
+            //manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
         }
 
         private void CreateProductCategorySample(WebShopDbContext context)
@@ -55,10 +55,10 @@ namespace WebShop.Data.Migrations
             {
                 List<ProductCategory> listProductCategory = new List<ProductCategory>()
                 {
-                    new ProductCategory() { Name = "Điện lạnh" ,Alias = "dien-lanh",Status = true },
-                    new ProductCategory() { Name = "Viễn thông" ,Alias = "vien-thong",Status = true },
-                    new ProductCategory() { Name = "Đồ gia dụng" ,Alias = "do-gia-dung",Status = true },
-                    new ProductCategory() { Name = "Mỹ phẩm" ,Alias = "my-pham",Status = true },
+                    new ProductCategory() { Name = "Pháo khói màu" ,Alias = "phao-khoi-mau",Status = true,CreatedDate = DateTime.Now ,HomeFlag=true ,DisplayOrder = 1 },
+                    new ProductCategory() { Name = "Pháo điện" ,Alias = "phao-dien",Status = true,CreatedDate = DateTime.Now ,HomeFlag=true ,DisplayOrder = 2 },
+                    new ProductCategory() { Name = "Các loại pháo khác" ,Alias = "cac-loai-phao-khac",Status = true,CreatedDate = DateTime.Now ,HomeFlag=true ,DisplayOrder = 3 },
+                    new ProductCategory() { Name = "Thiết bị sân khấu" ,Alias = "thiet-bi-san-khau",Status = true,CreatedDate = DateTime.Now ,HomeFlag=true ,DisplayOrder = 4 },
                 };
                 context.ProductCategories.AddRange(listProductCategory);
                 context.SaveChanges();

@@ -1,5 +1,4 @@
-﻿/// <reference path="C:\Users\lumin\documents\visual studio 2015\Projects\Phaokhoimau_Webshop\WebShop.Web\Assets/admin/libs/angular/angular.js" />
-
+﻿
 (function () {
 	//Khởi tạo module
 	angular.module('webshop.post_categories', ['webshop.common']).config(config);

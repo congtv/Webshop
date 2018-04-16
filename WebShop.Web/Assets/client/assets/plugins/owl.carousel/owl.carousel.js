@@ -2700,7 +2700,7 @@
 	Navigation.Defaults = {
 		nav: false,
 		navRewind: true,
-        navText: ['<i class="fa fa-angle-left  fa-5x"></i>', '<i class="fa fa-angle-right  fa-5x"></i>' ],
+		navText: [ 'prev', 'next' ],
 		navSpeed: false,
 		navElement: 'div',
 		navContainer: false,

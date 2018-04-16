@@ -1,5 +1,4 @@
-﻿/// <reference path="/Assets/admin/libs/angular/angular.js" />
-
+﻿
 (function (app) {
     app.factory('apiService', apiService);
 
@@ -11,17 +10,17 @@
             post: post,
             put: put,
             del: del
-        }
+        };
         function del(url, data, success, failure) {
             authenticationService.setHeader();
             $http.delete(url, data).then(function (result) {
                 success(result);
             }, function (error) {
-                console.log(error.status)
+                console.log(error.status);
                 if (error.status === 401) {
                     notificationService.displayError('Authenticate is required.');
                 }
-                else if (failure != null) {
+                else if (failure !== null) {
                     failure(error);
                 }
 
@@ -32,11 +31,11 @@
             $http.post(url, data).then(function (result) {
                 success(result);
             }, function (error) {
-                console.log(error.status)
+                console.log(error.status);
                 if (error.status === 401) {
                     notificationService.displayError('Authenticate is required.');
                 }
-                else if (failure != null) {
+                else if (failure !== null) {
                     failure(error);
                 }
 
@@ -47,11 +46,11 @@
             $http.put(url, data).then(function (result) {
                 success(result);
             }, function (error) {
-                console.log(error.status)
+                console.log(error.status);
                 if (error.status === 401) {
                     notificationService.displayError('Authenticate is required.');
                 }
-                else if (failure != null) {
+                else if (failure !== null) {
                     failure(error);
                 }
 

@@ -1,5 +1,4 @@
-﻿/// <reference path="/Assets/admin/libs/angular/angular.js" />
-
+﻿
 (function (app) {
     app.factory('commonService', commonService);
 
@@ -7,9 +6,9 @@
     function commonService() {
         return {
             getSeoTitle: getSeoTitle
-        }
+        };
         function getSeoTitle(input) {
-            if (input == undefined || input == '')
+            if (input === undefined || input === '')
                 return '';
             //Đổi chữ hoa thành chữ thường
             var slug = input.toLowerCase();
